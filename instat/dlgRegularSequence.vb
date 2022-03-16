@@ -100,7 +100,7 @@ Public Class dlgRegularSequence
         ucrPnlSequenceType.AddToLinkedControls(ucrDateTimePickerTo, {rdoDates}, bNewLinkedHideIfParameterMissing:=True)
         ucrPnlSequenceType.AddToLinkedControls(ucrInputComboDatesBy, {rdoDates}, bNewLinkedHideIfParameterMissing:=True)
 
-        ucrNewColumnName.SetPrefix("Regular")
+        ucrNewColumnName.SetPrefix("regular")
         ucrNewColumnName.SetDataFrameSelector(ucrSelectDataFrameRegularSequence)
         ucrNewColumnName.SetIsComboBox()
         ucrNewColumnName.SetSaveTypeAsColumn()
@@ -373,7 +373,9 @@ Public Class dlgRegularSequence
     End Sub
 
     Private Sub ucrInputComboDatesBy_ControlValueChanged(ucrChangedControl As ucrCore) Handles ucrInputComboDatesBy.ControlValueChanged
-        ResetNumberFromToByParameters()
+        If bUpdateBy Then
+            ResetNumberFromToByParameters()
+        End If
     End Sub
     Private Sub lblPreview_Click(sender As Object, e As EventArgs) Handles lblPreview.Click
 
